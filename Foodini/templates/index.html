@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Foodini</title>
+		{% load static %}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+		<style>
+			.form-container {
+				display: flex;
+				gap: 10px; /* Space between the fields */
+				font-family: 'Lato', sans-serif; /* Apply Lato font to the input fields */
+			}
+			.form-container input {
+				padding: 20px;
+				font-size: 16px;
+			}
+			.form-container label {
+				margin-right : 10px;
+				min-width : 150px;
+			}
+			.header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				display: flex;
+				justify-content: center; /* Center the title */
+				align-items: center;
+				padding: 5px 20px; /* Reduced padding */
+				background-color: #000; /* Black background color */
+				color: white; /* White text color for contrast */
+				border-bottom: 1px solid #ddd;
+				z-index: 1000; /* Ensure header is on top */
+				height: 100px; /* Set a fixed height if needed */
+			}
+			
+			
+			.logo {
+    position: absolute;
+    left: 0px; /* Adjust spacing from the left as needed */
+    width: 350px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+.about-us {
+	font-family: 'Lato', sans-serif; /* Apply Lato font to the input fields */
+    display: flex;
+    justify-content: space-between; /* Space the sections evenly */
+    margin-top: 20px;
+}
+
+.about-us-section {
+    flex: 1; /* Ensure each section takes up equal space */
+    padding: 0 10px; /* Add some horizontal padding */
+}
+
+.about-us h2 {
+    font-size: 24px;
+}
+
+.about-us p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.about-us-section {
+    flex: 1; /* Ensure each section takes up equal space */
+    padding: 0 10px; /* Add some horizontal padding */
+    display: flex;
+    flex-direction: column; /* Stack heading and paragraph vertically */
+}
+
+.button.primary {
+    background-color: #FFBA44; /* Yellow background color */
+    color: black; /* Black text color for contrast */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for button size */
+    font-size: 16px; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	text-align: center; /* Center text horizontally */
+    line-height: 20px; /* Set line height equal to button height for vertical centering */
+    height: 40px; /* Set button height */
+}
+
+.button.primary:hover {
+    background-color: #FFC107; /* Slightly darker yellow on hover */
+}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header" class="header">
+				<img class='logo' src="{% static 'images/foodini transparent name.png'%}" alt="Example Image">
+			</header>
+
+		<!-- Signup Form -->
+			<form id="prediction-form" method="post" action={% url 'result' %}>
+				{% csrf_token %}
+				<div class="fields">
+					<div class="form-container">
+						<label for="field"><h4>Calorie Count</h4></label>
+					
+						<input type="text" name="ENERCC_low" id="ENERCC_low" placeholder="KCal Lower Bound" />
+						<input type="text" name="ENERCC_high" id="ENERCC_high" placeholder="KCal Upper Bound" />
+
+					</div>
+					<div class="form-container">
+						<label for="field"><h4>Protein Amount</h4></label>
+						<input type="text" name="Protein_low" id="Protein_low" placeholder="Protein Lower Bound" />
+						<input type="text" name="Protein_high" id="Protein_high" placeholder="Protein Higher Bound" />
+					</div>
+					<div class="form-container">
+						<label for="field"><h4>Fat Amount</h4></label>
+						<input type="text" name="Fat_low" id="Fat_low" placeholder="Fat Lower Bound" />
+						<input type="text" name="Fat_high" id="Fat_high" placeholder="Fat Higher Bound" />
+					
+					</div>
+				</div>
+				<input type="submit" value="Get Predictions" class="button primary" />
+			</form>
+			<section class='about-us'>
+			<h2 font=>About Us</h2><br>
+			</section>
+			<section class="about-us">
+
+				<div class="about-us-section">
+					<h2>Virtual Grocery Assistant</h2>
+					<p>We wish to foster healthy diets in our clients using state-of-the-art Artificial Intelligence bundled with a clean interface.</p>
+				</div>
+				<div class="about-us-section">
+					<h2>Dietary Restriction Management</h2>
+					<p>Customers can easily manage their dietary restrictions with personalized suggestions regarding groceries and recipes.</p>
+				</div>
+				<div class="about-us-section">
+					<h2>Nutrition Requirements</h2>
+					<p>Personalize what your dietary requirements are, in terms of nutrition and lifestyle.</p>
+				</div>
+			</section>
+	
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled.</li><li>Credits: Group 24</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

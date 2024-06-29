@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Foodini</title>
+		{% load static %}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+		<style>
+			.form-container {
+				display: flex;
+				gap: 10px; /* Space between the fields */
+				font-family: 'Lato', sans-serif; /* Apply Lato font to the input fields */
+			}
+			.form-container input {
+				padding: 20px;
+				font-size: 16px;
+			}
+			.form-container label {
+				margin-right : 10px;
+				min-width : 150px;
+			}
+			.header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				display: flex;
+				justify-content: center; /* Center the title */
+				align-items: center;
+				padding: 20px 20px; /* Reduced padding */
+				background-color: #000; /* Black background color */
+				color: white; /* White text color for contrast */
+				border-bottom: 1px solid #ddd;
+				z-index: 1000; /* Ensure header is on top */
+				height: 100px; /* Set a fixed height if needed */
+			}
+			
+			
+			.logo {
+    position: absolute;
+    left: 0px; /* Adjust spacing from the left as needed */
+    width: 350px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+.about-us {
+	font-family: 'Lato', sans-serif; /* Apply Lato font to the input fields */
+    display: flex;
+    justify-content: space-between; /* Space the sections evenly */
+    margin-top: 20px;
+}
+
+.about-us-section {
+    flex: 1; /* Ensure each section takes up equal space */
+    padding: 0 10px; /* Add some horizontal padding */
+}
+
+.about-us h2 {
+    font-size: 24px;
+}
+
+.about-us p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.about-us-section {
+    flex: 1; /* Ensure each section takes up equal space */
+    padding: 0 10px; /* Add some horizontal padding */
+    display: flex;
+    flex-direction: column; /* Stack heading and paragraph vertically */
+}
+
+.button.primary {
+    background-color: #FFBA44; /* Yellow background color */
+    color: black; /* Black text color for contrast */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for button size */
+    font-size: 16px; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	text-align: center; /* Center text horizontally */
+    line-height: 20px; /* Set line height equal to button height for vertical centering */
+    height: 40px; /* Set button height */
+}
+
+.button.primary:hover {
+    background-color: #FFC107; /* Slightly darker yellow on hover */
+}
+
+.prediction-section {
+    margin-top: 20px;
+}
+
+.prediction-section h2 {
+    font-family: 'Lato', sans-serif; /* Apply Lato font to the section heading */
+}
+
+.prediction-section .prediction-results {
+    font-family: 'Lato', sans-serif; /* Apply Lato font to the prediction results */
+}
+
+.prediction-section .prediction-results p {
+    font-size: 16px; /* Example of setting font size */
+}
+
+.prediction-section .prediction-results ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.prediction-section .prediction-results li {
+    margin-bottom: 5px; /* Adjust spacing between list items */
+    font-size: 14px; /* Example of setting font size for list items */
+}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header" class="header">
+				<img class='logo' src="{% static 'images/foodini transparent name.png'%}" alt="Example Image">
+			</header>
+		<main>
+			<section class='prediction'>
+			<div class="prediction-section">
+
+			<h2 font-family: 'Lato'>Prediction:</h2>
+			<ul>
+				{% for i in result %}
+				<li>{{ i }}</li>
+				{% endfor %}
+
+			</ul>
+		</div>
+		</section>
+						<input type="submit" value="Add to Cart" class="button primary" />
+					<!-- Footer -->
+					</main>
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
